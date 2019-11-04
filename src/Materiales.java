@@ -575,7 +575,7 @@ public class Materiales extends javax.swing.JFrame {
                 linea.println("Total_Registros:1");
                 linea.println("Registros_Activos:1");
                 linea.println("Registros_Inactivos:0");
-                linea.println("Maximo_Registros:2");
+                linea.println("Maximo_Registros:8");
                 
                 imprimir.close();
                 escritor2.close();
@@ -632,7 +632,7 @@ public class Materiales extends javax.swing.JFrame {
                     linea.println("Total_Registros:es"+escribir.size());
                     linea.println("Registros_Activos:"+_1_);
                     linea.println("Registros_Inactivos:"+_2_);
-                    linea.println("Maximo_Registros:2");
+                    linea.println("Maximo_Registros:8");
                     
                     imprimir.close();
                     escritor2.close();
@@ -719,7 +719,7 @@ public class Materiales extends javax.swing.JFrame {
                         linea2.println("Total_Registros:1");
                         linea2.println("Registros_Activos:1");
                         linea2.println("Registros_Inactivos:0");
-                        linea2.println("Maximo_Registros:2");
+                        linea2.println("Maximo_Registros:8");
                         
                         escritor3.close();
                         linea2.close();
@@ -801,7 +801,7 @@ public class Materiales extends javax.swing.JFrame {
                         linea2.println("Total_Registros:1");
                         linea2.println("Registros_Activos:1");
                         linea2.println("Registros_Inactivos:0");
-                        linea2.println("Maximo_Registros:2");
+                        linea2.println("Maximo_Registros:8");
                         
                         escritor3.close();
                         linea2.close();
