@@ -24,6 +24,29 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import static java.lang.ProcessBuilder.Redirect.from;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author Sergio Daniel
@@ -129,26 +152,38 @@ public class VentanaBackUp extends javax.swing.JFrame {
     
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    File dir = new File(jLabel1.getText()+ "/MEIA_Backup");
+  File dir = new File(jLabel1.getText()+ "/MEIA_Backup");
         dir.mkdir();
          File dir1 = new File("C:/MEIA");
             if(dir1.isDirectory()) {
                 File[] content = dir1.listFiles();
-                try{
-                for(int i = 0; i < content.length + 1; i++) {
+                for(int i = 0; i < content.length; i++) {
                     String srcPath = content[i].getPath();
                     String destPath = jLabel1.getText()+ "/MEIA_Backup";
                     String srcp = srcPath.replace('\\', '/');
                     String destp = destPath.replace('\\', '/');    
                     File a = new File(srcPath);
-                
-                    a.renameTo(new File(destPath + "\\" + a.getName()));
-                    a.delete();
+                    File b = new File("C:/MEIA/bitacora_backup.txt");
+                     File c = new File("C:/MEIA/Bitacora.txt");
+                    if (!a.getPath().equals(b.getPath()) && !a.getPath().equals(c.getPath()))
+                    {
+                        a.renameTo(new File(destPath + "\\" + a.getName()));
+                    }
                 }
-                }catch(Exception E)
-                {}
-                
             }
+     
+               try {
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());                   
+                FileWriter fw = new FileWriter("C:/MEIA/bitacora_backup.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.newLine();
+                bw.write("Ruta absoluta: " + jLabel1.getText() + "/MEIA_Backup" + "    Usuario: " + "     Fecha de transaccion: " + timeStamp);
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            
     
            // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -1,8 +1,0 @@
-Nombre:Bitacora.txt
-ArchivoRelacionado:Usuario.txt
-Fecha_Modificacion:Wed Oct 09 20:54:06 CST 2019
-Creador:1
-Total_Registros:1
-Registros_Activos:1
-Registros_Inactivos:0
-Maximo_Registros:2
