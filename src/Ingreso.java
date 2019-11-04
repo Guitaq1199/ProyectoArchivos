@@ -528,9 +528,13 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         File file = new File("C:\\MEIA\\Bitacora.txt");
-         
+        
         try {
             Inicializar();
+            try{
+                ArchivoSecuencialIndexado h = new ArchivoSecuencialIndexado();
+                h.Inicializar("Guita");
+            }catch(IOException ex){}
         } catch (IOException ex) {
             Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
         }
